@@ -1,0 +1,219 @@
+/* --- Global Styles & Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0b0c10;
+    color: #e5e5e5;
+    font-family: 'Noto Serif JP', serif;
+    overflow-x: hidden;
+    padding: 40px 20px;
+}
+
+/* --- Typography --- */
+h1, h2, h3, .kanji-logo {
+    font-family: 'Cinzel', serif;
+    letter-spacing: 2px;
+}
+
+/* --- Header Styling --- */
+.menu-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.kanji-logo {
+    font-size: 3.5rem;
+    color: #d63031; /* Vibrant Japanese Crimson */
+    margin-bottom: 5px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.menu-header h1 {
+    font-size: 2.5rem;
+    color: #c5a880; /* Elegant Soft Gold */
+    font-weight: 700;
+}
+
+.subtitle {
+    font-size: 0.85rem;
+    color: #888;
+    letter-spacing: 5px;
+    margin-top: 5px;
+}
+
+.divider {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #c5a880, transparent);
+    margin: 20px auto 0;
+}
+
+/* --- Menu Grid Layout --- */
+.menu-container {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+}
+
+@media (min-width: 768px) {
+    .menu-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* --- Menu Sections --- */
+.menu-section {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(197, 168, 128, 0.1);
+    padding: 30px;
+    border-radius: 4px;
+    backdrop-filter: blur(5px);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.menu-section:hover {
+    transform: translateY(-5px);
+    border-color: rgba(197, 168, 128, 0.3);
+}
+
+.section-title {
+    font-size: 1.3rem;
+    color: #c5a880;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.en-title {
+    font-size: 0.8rem;
+    color: #666;
+    text-transform: uppercase;
+}
+
+/* --- Menu Items --- */
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 25px;
+}
+
+.menu-item:last-child {
+    margin-bottom: 0;
+}
+
+.item-details h3 {
+    font-size: 1.1rem;
+    color: #fff;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.spicy-tag {
+    font-size: 0.65rem;
+    background: #d63031;
+    color: #fff;
+    padding: 2px 6px;
+    border-radius: 3px;
+    vertical-align: middle;
+    margin-left: 8px;
+    font-family: sans-serif;
+    letter-spacing: 0;
+}
+
+.item-details p {
+    font-size: 0.85rem;
+    color: #aaa;
+    line-height: 1.5;
+    padding-right: 15px;
+}
+
+.item-price {
+    font-family: 'Cinzel', serif;
+    color: #c5a880;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* --- Footer & Button --- */
+.menu-footer {
+    text-align: center;
+    margin-top: 60px;
+}
+
+.menu-footer p {
+    font-size: 0.9rem;
+    color: #666;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.btn-reserve {
+    background: transparent;
+    border: 1px solid #c5a880;
+    color: #c5a880;
+    padding: 12px 30px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.9rem;
+    cursor: pointer;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+}
+
+.btn-reserve:hover {
+    background: #c5a880;
+    color: #0b0c10;
+    box-shadow: 0 0 15px rgba(197, 168, 128, 0.4);
+}
+
+/* --- Visual Effects: Falling Sakura Petals --- */
+.blossom-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.petal {
+    position: absolute;
+    background: linear-gradient(to bottom, #ffb7c5, #ff9aa2);
+    border-radius: 150% 0 150% 150%;
+    width: 15px;
+    height: 15px;
+    opacity: 0.3;
+    animation: fall linear infinite;
+}
+
+/* Variations for organic petal behavior */
+.petal:nth-child(1) { left: 10%; width: 12px; height: 12px; animation-duration: 12s; animation-delay: 0s; }
+.petal:nth-child(2) { left: 30%; width: 16px; height: 16px; animation-duration: 18s; animation-delay: 2s; }
+.petal:nth-child(3) { left: 55%; width: 10px; height: 10px; animation-duration: 15s; animation-delay: 4s; }
+.petal:nth-child(4) { left: 75%; width: 14px; height: 14px; animation-duration: 22s; animation-delay: 1s; }
+.petal:nth-child(5) { left: 90%; width: 11px; height: 11px; animation-duration: 14s; animation-delay: 5s; }
+
+@keyframes fall {
+    0% {
+        top: -10%;
+        transform: translateX(0) rotate(0deg);
+    }
+    100% {
+        top: 110%;
+        transform: translateX(100px) rotate(360deg);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
