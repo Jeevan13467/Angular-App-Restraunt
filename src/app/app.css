@@ -1,220 +1,144 @@
-/* --- Global Styles & Reset --- */
+/* Global Reset and Typography */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
 body {
-    background-color: #0b0c10;
-    color: #e5e5e5;
-    font-family: 'Noto Serif JP', serif;
-    overflow-x: hidden;
-    padding: 40px 20px;
+    background-color: #fcf9f5; /* Soft off-white paper feel */
+    color: #2c2c2c;
+    line-height: 1.6;
+    padding-bottom: 80px; /* Space for fixed bottom bar */
 }
 
-/* --- Typography --- */
-h1, h2, h3, .kanji-logo {
-    font-family: 'Cinzel', serif;
-    letter-spacing: 2px;
-}
-
-/* --- Header Styling --- */
-.menu-header {
+/* Hero Header */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), 
+                url('https://images.unsplash.com/photo-1579871494447-9811cf80d66c?q=80&w=1200') no-repeat center center/cover;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    margin-bottom: 50px;
+    color: #fff;
+    border-bottom: 5px solid #bc002d; /* Japanese Crimson Accent */
 }
 
-.kanji-logo {
-    font-size: 3.5rem;
-    color: #d63031; /* Vibrant Japanese Crimson */
-    margin-bottom: 5px;
-    animation: fadeIn 2s ease-in-out;
-}
-
-.menu-header h1 {
+.hero h1 {
     font-size: 2.5rem;
-    color: #c5a880; /* Elegant Soft Gold */
-    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
 }
 
-.subtitle {
-    font-size: 0.85rem;
-    color: #888;
-    letter-spacing: 5px;
-    margin-top: 5px;
+.hero p {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: #f0f0f0;
 }
 
-.divider {
-    width: 60px;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #c5a880, transparent);
-    margin: 20px auto 0;
-}
-
-/* --- Menu Grid Layout --- */
+/* Layout Container */
 .menu-container {
     max-width: 900px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 40px;
+    margin: 40px auto;
+    padding: 0 20px;
 }
 
-@media (min-width: 768px) {
-    .menu-container {
-        grid-template-columns: 1fr 1fr;
+/* Category Sections */
+.menu-category {
+    margin-bottom: 40px;
+}
+
+.menu-category h2 {
+    font-size: 1.6rem;
+    color: #bc002d;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Menu Grid Matrix */
+.menu-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .menu-grid {
+        grid-template-columns: 1fr; /* Stack on smaller screens */
     }
 }
 
-/* --- Menu Sections --- */
-.menu-section {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(197, 168, 128, 0.1);
-    padding: 30px;
+/* Menu Cards */
+.menu-card {
+    background: #ffffff;
+    border-left: 4px solid #4a4a4a;
+    padding: 20px;
     border-radius: 4px;
-    backdrop-filter: blur(5px);
-    transition: transform 0.3s ease, border-color 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.menu-section:hover {
-    transform: translateY(-5px);
-    border-color: rgba(197, 168, 128, 0.3);
+.menu-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-.section-title {
-    font-size: 1.3rem;
-    color: #c5a880;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding-bottom: 10px;
-    margin-bottom: 25px;
+/* Special styling for popular items */
+.menu-card.featured {
+    border-left-color: #bc002d;
+    background-color: #fffbfb;
+}
+
+.menu-info h3 {
+    font-size: 1.2rem;
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: center;
+    margin-bottom: 8px;
 }
 
-.en-title {
-    font-size: 0.8rem;
+.badge {
+    font-size: 0.75rem;
+    background-color: #bc002d;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-weight: normal;
+}
+
+.description {
+    font-size: 0.9rem;
     color: #666;
-    text-transform: uppercase;
+    margin-bottom: 12px;
+    min-height: 40px;
 }
 
-/* --- Menu Items --- */
-.menu-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 25px;
-}
-
-.menu-item:last-child {
-    margin-bottom: 0;
-}
-
-.item-details h3 {
-    font-size: 1.1rem;
-    color: #fff;
-    font-weight: 500;
-    margin-bottom: 5px;
-}
-
-.spicy-tag {
-    font-size: 0.65rem;
-    background: #d63031;
-    color: #fff;
-    padding: 2px 6px;
-    border-radius: 3px;
-    vertical-align: middle;
-    margin-left: 8px;
-    font-family: sans-serif;
-    letter-spacing: 0;
-}
-
-.item-details p {
-    font-size: 0.85rem;
-    color: #aaa;
-    line-height: 1.5;
-    padding-right: 15px;
-}
-
-.item-price {
-    font-family: 'Cinzel', serif;
-    color: #c5a880;
+.price {
     font-weight: bold;
+    color: #bc002d;
     font-size: 1.1rem;
 }
 
-/* --- Footer & Button --- */
-.menu-footer {
-    text-align: center;
-    margin-top: 60px;
-}
-
-.menu-footer p {
-    font-size: 0.9rem;
-    color: #666;
-    font-style: italic;
-    margin-bottom: 20px;
-}
-
-.btn-reserve {
-    background: transparent;
-    border: 1px solid #c5a880;
-    color: #c5a880;
-    padding: 12px 30px;
-    font-family: 'Cinzel', serif;
-    font-size: 0.9rem;
-    cursor: pointer;
-    letter-spacing: 2px;
-    transition: all 0.3s ease;
-}
-
-.btn-reserve:hover {
-    background: #c5a880;
-    color: #0b0c10;
-    box-shadow: 0 0 15px rgba(197, 168, 128, 0.4);
-}
-
-/* --- Visual Effects: Falling Sakura Petals --- */
-.blossom-container {
+/* Fixed Bottom Action Bar */
+.order-bar {
     position: fixed;
-    top: 0;
+    bottom: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 0;
+    background-color: #1a1a1a;
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    font-size: 1rem;
+    box-shadow: 0 -3px 10px rgba(0,0,0,0.2);
+    z-index: 100;
 }
 
-.petal {
-    position: absolute;
-    background: linear-gradient(to bottom, #ffb7c5, #ff9aa2);
-    border-radius: 150% 0 150% 150%;
-    width: 15px;
-    height: 15px;
-    opacity: 0.3;
-    animation: fall linear infinite;
-}
-
-/* Variations for organic petal behavior */
-.petal:nth-child(1) { left: 10%; width: 12px; height: 12px; animation-duration: 12s; animation-delay: 0s; }
-.petal:nth-child(2) { left: 30%; width: 16px; height: 16px; animation-duration: 18s; animation-delay: 2s; }
-.petal:nth-child(3) { left: 55%; width: 10px; height: 10px; animation-duration: 15s; animation-delay: 4s; }
-.petal:nth-child(4) { left: 75%; width: 14px; height: 14px; animation-duration: 22s; animation-delay: 1s; }
-.petal:nth-child(5) { left: 90%; width: 11px; height: 11px; animation-duration: 14s; animation-delay: 5s; }
-
-@keyframes fall {
-    0% {
-        top: -10%;
-        transform: translateX(0) rotate(0deg);
-    }
-    100% {
-        top: 110%;
-        transform: translateX(100px) rotate(360deg);
-    }
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
+.order-bar strong {
+    color: #ff4d4d;
 }
