@@ -29,7 +29,7 @@ pipeline {
         stage('test') {
             steps {
                 sh """
-                docker run --name angular-container ${DOCKER_IMAGE} 
+                docker run --name my-container ${DOCKER_IMAGE} 
                 docker rm test-container
                 """
             }
