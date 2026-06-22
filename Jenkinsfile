@@ -29,7 +29,7 @@ pipeline {
         stage('test') {
             steps {
                 sh """
-                docker run --name test-container ${DOCKER_IMAGE} /bin/sh -c 'python -m unittest discover -s /app/tests'
+                docker run --name angular-container ${DOCKER_IMAGE} /bin/sh -c 'python -m unittest discover -s /app/tests'
                 docker rm test-container
                 """
             }
