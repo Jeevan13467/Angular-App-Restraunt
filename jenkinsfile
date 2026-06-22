@@ -13,7 +13,7 @@ pipeline {
         
         stage('checkout/source') {
             steps {
-                git 'https://github.com/Jeevan13467/python-app.git'
+                git 'https://github.com/Jeevan13467/Angular-App-Restraunt.git'
             }
         }
         
