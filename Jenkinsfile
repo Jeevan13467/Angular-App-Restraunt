@@ -26,15 +26,12 @@ pipeline {
             }
         }
         
-        stage('test') {
-            steps {
-                sh """
-                docker run --name my-container1 ${DOCKER_IMAGE} 
-                docker rm test-container
-                """
-            }
-        }
-        
+       stage('Test') {
+    steps {
+        // Run npm test inside a node container, or locally if node is installed on the agent
+        sh 'docker run --rm node:24-alpine sh -c "cd /app && npm install && npm run test -- --watch=false"'
+    }
+}
       stage('Push to Docker Registry') {
             steps {
                 script {
