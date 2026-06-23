@@ -2,7 +2,7 @@ pipeline {
     agent any 
     
     environment {
-        DOCKER_IMAGE = 'angular-app'
+        DOCKER_IMAGE = 'angular-app1'
         DOCKERHUB_USERNAME = 'jeevan7790'
         DOCKERHUB_ACCESS_TOKEN = credentials('dockerhub-access-token')
         DOCKER_REGISTRY = 'jeevan7790/Angular-app'
