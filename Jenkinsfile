@@ -5,7 +5,7 @@ pipeline {
         DOCKER_IMAGE = 'angular-app1'
         DOCKERHUB_USERNAME = 'jeevan7790'
         DOCKERHUB_ACCESS_TOKEN = credentials('dockerhub-access-token')
-        DOCKER_REGISTRY = 'jeevan7790/Angular-app'
+        DOCKER_REGISTRY = 'jeevan7790/angular-app'
     }
     
     // OPEN STAGES ONCE HERE
